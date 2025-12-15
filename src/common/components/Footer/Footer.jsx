@@ -7,7 +7,6 @@ import { Typography,Box  } from '@mui/material';
 import './styles.css'
 
 export default function Footer() {
-
     const iconStyle = {
     bgcolor: 'grey.400',
     color: 'grey.600',
@@ -16,9 +15,7 @@ export default function Footer() {
     height: 35,
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer',
-    
+    justifyContent: 'center',    
   };
 
   return (
@@ -26,7 +23,7 @@ export default function Footer() {
     
     <div>
         <div style={{display:'flex', justifyContent:'space-between'}}>
-      <Box sx={{ display: 'flex', gap: 2, color: 'grey', fontSize: '2rem', marginLeft:8, marginTop:-4 }}>
+      <Box sx={{ display: 'flex', gap: 2, color: 'grey', fontSize: '2rem', marginLeft:8, marginTop:-4}}>
         <Box sx={iconStyle}><FacebookIcon /></Box>
         <Box sx={iconStyle}><InstagramIcon /></Box>
         <Box sx={iconStyle}><LinkedInIcon /></Box>

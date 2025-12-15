@@ -1,9 +1,7 @@
 Button{
     width: 220px;
-    background-color: rgb(255, 81, 0) !important;
-    color: white !important;
     border-radius: 50px !important;
-    padding: 12px 0 !important;
+    padding: 10px 0 !important;
     margin: 30px 0 !important;
     text-transform: none !important;
     font-weight: 600 !important;
