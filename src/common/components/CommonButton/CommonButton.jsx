@@ -1,10 +1,10 @@
 import Button from "@mui/material/Button";
 import "./style.css";
 
-export default function CommonButton({btnName,bgColor,textColor,borderColor,onClick}) {
+export default function CommonButton({btnName,bgColor,textColor,borderColor,onClick,displayButton}) {
   return (
     <>
-      <Button sx={{backgroundColor:bgColor, color:textColor, border: `1px solid ${borderColor}`}} onClick={()=>{onClick()}}>{btnName}</Button>
+      <Button sx={{backgroundColor:bgColor, display: displayButton ? "flex" : "none", color:textColor, border: `1px solid ${borderColor}`}} onClick={()=>{onClick()}}>{btnName}</Button>
     </>
   );
 }

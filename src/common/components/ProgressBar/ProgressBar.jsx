@@ -3,13 +3,14 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-
-export default function ProgressBar({ progress,heading,value ,displayProgress}) {
+import { Link } from "react-router-dom";
+export default function ProgressBar({ progress,heading,value ,displayProgress,linkTo}) {
   return (
     <div>
       <Box
         sx={{
-          position: "relative",
+          position: "fixed",
+          left:'35vw',
           display: "flex",
           justifyContent: "space-between",
           alignContent:'center',
@@ -19,12 +20,15 @@ export default function ProgressBar({ progress,heading,value ,displayProgress}) 
           padding:'5px 20px',
           boxShadow: "0px 3px 15px rgba(0,0,0,0.15)",
           display: displayProgress ? "flex" : "none",
-
           
+
+
 
         }}
       >
+        <Link to={linkTo}>
         <ArrowBackIcon sx={{ color: "black" }} />
+        </Link>
         <Typography sx={{ color: "black" }}>{heading}</Typography>
         <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress

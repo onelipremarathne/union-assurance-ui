@@ -3,7 +3,6 @@ import Navbar from "../../common/components/Navbar/Navbar";
 import InfoCard from "../../common/components/InfoCard/InfoCard";
 import SecImg from "../../assets/SecImg.png";
 import Footer from "../../common/components/Footer/Footer";
-import details1 from '../Details1/Details1';
 
 export default function Landing2() {
   return (
