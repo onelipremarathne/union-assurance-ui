@@ -8,7 +8,7 @@ export default function Landing2() {
   return (
     <div>
       <div style={{ position: "relative", height: "95vh" }}>
-        <Navbar whichPage={'/details1'} />
+        <Navbar whichPage={'/details1'} displayButton={'flex'}/>
           <div style={{ position: "relative", width: "100%", height: "100%" }}>
           <div style={{ position: "absolute", top: "30%", left: "7%" }}>
             <InfoCard />
