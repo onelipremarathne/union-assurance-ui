@@ -6,7 +6,7 @@ import CommonButton from "../../common/components/CommonButton/CommonButton";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../common/context/UserContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 export default function Details3() {
   const navigate = useNavigate();

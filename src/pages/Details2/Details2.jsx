@@ -1,39 +1,33 @@
 import React from "react";
 import Navbar from "../../common/components/Navbar/Navbar";
 import Footer from "../../common/components/Footer/Footer";
-import {
-  Box,
-  Typography,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "@mui/material";
+import { Box, Typography, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import CommonButton from "../../common/components/CommonButton/CommonButton";
 import { useNavigate } from "react-router-dom";
 import BoyIcon from "@mui/icons-material/Boy";
-import GirlIcon from '@mui/icons-material/Girl';
+import GirlIcon from "@mui/icons-material/Girl";
 import WcIcon from "@mui/icons-material/Wc";
 import { UserContext } from "../../common/context/UserContext";
 import { useContext, useState } from "react";
 
-
 export default function Details2() {
   const navigate = useNavigate();
-const { userData, updateUserData } = useContext(UserContext);
-const [maritalStatus, setMaritalStatus] = useState(userData.maritalStatus || "");
-const [spouseName, setSpouseName] = useState(userData.spouseName || "");
+  const { userData, updateUserData } = useContext(UserContext);
+  const [maritalStatus, setMaritalStatus] = useState(
+    userData.maritalStatus || ""
+  );
+  const [spouseName, setSpouseName] = useState(userData.spouseName || "");
 
-
-const handleNext = () => {
-  if (!maritalStatus || (maritalStatus === "Married" && !spouseName.trim())) {
-    alert("Please fill all required fields!");
-    return;
-  }
-  updateUserData("maritalStatus", maritalStatus);
-  updateUserData("spouseName", spouseName);
-  if (maritalStatus === "Single") navigate("/goals");
-  else navigate("/details3");
-};
+  const handleNext = () => {
+    if (!maritalStatus || (maritalStatus === "Married" && !spouseName.trim())) {
+      alert("Please fill all required fields!");
+      return;
+    }
+    updateUserData("maritalStatus", maritalStatus);
+    updateUserData("spouseName", spouseName);
+    if (maritalStatus === "Single") navigate("/goals");
+    else navigate("/details3");
+  };
 
   return (
     <div>
@@ -60,12 +54,13 @@ const handleNext = () => {
           }}
         >
           <Typography sx={{ mb: 1 }}>
-            My name is <span style={{ color: "#ff5100" }}>{userData.firstName}</span>
+            My name is{" "}
+            <span style={{ color: "#ff5100" }}>{userData.firstName}</span>
           </Typography>
 
           <Typography sx={{ mb: 4 }}>
-            And I am <span style={{ color: "#ff5100" }}>{userData.title}</span> of {userData.dob} years old
-            .
+            And I am <span style={{ color: "#ff5100" }}>{userData.title}</span>{" "}
+            of {userData.dob} years old .
           </Typography>
           <Typography
             sx={{
@@ -87,9 +82,8 @@ const handleNext = () => {
             exclusive
             value={maritalStatus}
             onChange={(_, value) => setMaritalStatus(value)}
-            
           >
-            <ToggleButton value="Single" sx={{ maxWidth:'150px' }}>
+            <ToggleButton value="Single" sx={{ maxWidth: "150px" }}>
               <BoyIcon sx={{ mr: 1 }} />
               Single
             </ToggleButton>
@@ -97,7 +91,7 @@ const handleNext = () => {
             <ToggleButton
               value="Married"
               sx={{
-                maxWidth:'150px' ,
+                maxWidth: "150px",
                 px: 3,
                 "&.Mui-selected": {
                   backgroundColor: "#ff5100",
@@ -115,7 +109,7 @@ const handleNext = () => {
               label="My wife is"
               value={spouseName}
               onChange={(e) => setSpouseName(e.target.value)}
-              sx={{ width: "300px"}}
+              sx={{ width: "300px" }}
               InputProps={{
                 startAdornment: <GirlIcon sx={{ mr: 1 }} />,
               }}
@@ -138,7 +132,7 @@ const handleNext = () => {
               borderColor={"rgb(255, 81, 0)"}
               bgColor={"rgb(255, 81, 0)"}
               textColor={"white"}
-               onClick={handleNext}
+              onClick={handleNext}
             />
             <div></div>
           </div>
