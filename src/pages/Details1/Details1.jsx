@@ -10,9 +10,30 @@ import PersonIcon from "@mui/icons-material/Person";
 import InputAdornment from "@mui/material/InputAdornment";
 import CommonButton from "../../common/components/CommonButton/CommonButton";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../common/context/UserContext";
+import { useContext, useState } from "react";
 
 export default function Details1() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { userData, updateUserData } = useContext(UserContext);
+
+  const [title, setTitle] = useState(userData.title);
+  const [firstName, setFirstName] = useState(userData.firstName);
+  const [lastName, setLastName] = useState(userData.lastName);
+  const [dob, setDob] = useState(userData.dob);
+
+  const handleNext = () => {
+    if (!title || !firstName || !lastName || !dob) {
+      alert("Please fill all fields!");
+      return;
+    }
+    updateUserData("title", title);
+    updateUserData("firstName", firstName);
+    updateUserData("lastName", lastName);
+    updateUserData("dob", dob);
+    navigate("/details2");
+  };
+
   return (
     <div>
       <div style={{ position: "relative" }}>
@@ -21,7 +42,7 @@ export default function Details1() {
           heading="My details"
           value={1}
           displayProgress="flex"
-          linkTo={"/Landing1"}
+          linkTo={"/landing1"}
           position={"fixed"}
           top={17}
         />
@@ -33,11 +54,21 @@ export default function Details1() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            alignContent:'center',
+            alignContent: "center",
             flexDirection: "column",
           }}
         >
-          <Typography sx={{fontSize:'35px' ,textAlign: "left", color: "black", maxWidth:'350px',fontWeight:'600', lineHeight:1, marginBottom:'35px'}}>
+          <Typography
+            sx={{
+              fontSize: "35px",
+              textAlign: "left",
+              color: "black",
+              maxWidth: "350px",
+              fontWeight: "600",
+              lineHeight: 1,
+              marginBottom: "35px",
+            }}
+          >
             Let's get started by telling a little bit about yourself
           </Typography>
 
@@ -45,32 +76,30 @@ export default function Details1() {
             <FormControl sx={{ m: 1, minWidth: 70 }} size="large">
               <InputLabel>Title</InputLabel>
 
-              <Select autoWidth>
-                <MenuItem value={1}>Male</MenuItem>
-                <MenuItem value={2}>Female</MenuItem>
+              <Select value={title} onChange={(e) => setTitle(e.target.value)}>
+                <MenuItem value="Male">Male</MenuItem>
+                <MenuItem value="Female">Female</MenuItem>
               </Select>
             </FormControl>
 
             <TextField
               sx={{ m: 1, maxWidth: 200 }}
-              id="outlined-basic"
               label="First name"
               variant="outlined"
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <PersonIcon />
-                    </InputAdornment>
-                  ),
-                },
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonIcon />
+                  </InputAdornment>
+                ),
               }}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
 
           <TextField
             sx={{ m: 1, minWidth: 290 }}
-            id="outlined-basic"
             label="Last name"
             variant="outlined"
             slotProps={{
@@ -82,6 +111,8 @@ export default function Details1() {
                 ),
               },
             }}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
 
           <TextField
@@ -89,6 +120,8 @@ export default function Details1() {
             id="outlined-basic"
             label="My date of birth"
             variant="outlined"
+            type="date"
+            InputLabelProps={{ shrink: true }}
             slotProps={{
               input: {
                 startAdornment: (
@@ -98,6 +131,8 @@ export default function Details1() {
                 ),
               },
             }}
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
           />
 
           <div
@@ -116,13 +151,11 @@ export default function Details1() {
               borderColor={"rgb(255, 81, 0)"}
               bgColor={"rgb(255, 81, 0)"}
               textColor={"white"}
-              onClick={() => {
-                navigate("/details2");
-              }}
+              onClick={handleNext}
             />
           </div>
         </Box>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

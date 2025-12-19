@@ -5,16 +5,22 @@ import "./App.css";
 import Details1 from "./pages/Details1/Details1";
 import Details2 from "./pages/Details2/Details2";
 import Details3 from "./pages/Details3/Details3";
+import Goals from "./pages/Goals/Goals";
+
+import { UserProvider } from "./common/context/UserContext";
 
 function App() {
   return (
-    <Routes>
-      <Route path="*" element={<Landing1 />} />
-      <Route path="/landing2" element={<Landing2 />} />
-      <Route path="/details1" element={<Details1 />} />
-      <Route path="/details2" element={<Details2 />} />
-      <Route path="/details3" element={<Details3 />} />
-    </Routes>
+    <UserProvider>
+      <Routes>
+        <Route path="*" element={<Landing1 />} />
+        <Route path="/landing2" element={<Landing2 />} />
+        <Route path="/details1" element={<Details1 />} />
+        <Route path="/details2" element={<Details2 />} />
+        <Route path="/details3" element={<Details3 />} />
+        <Route path="/goals" element={<Goals />} />
+      </Routes>
+    </UserProvider>
   );
 }
 

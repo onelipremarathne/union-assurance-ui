@@ -13,18 +13,28 @@ import { useNavigate } from "react-router-dom";
 import BoyIcon from "@mui/icons-material/Boy";
 import GirlIcon from '@mui/icons-material/Girl';
 import WcIcon from "@mui/icons-material/Wc";
+import { UserContext } from "../../common/context/UserContext";
+import { useContext, useState } from "react";
+
 
 export default function Details2() {
   const navigate = useNavigate();
-  const name = "Arjuna";
-  const gender = "male";
-  const age = 35;
+const { userData, updateUserData } = useContext(UserContext);
+const [maritalStatus, setMaritalStatus] = useState(userData.maritalStatus || "");
+const [spouseName, setSpouseName] = useState(userData.spouseName || "");
 
-  const [maritalStatus, setMaritalStatus] = React.useState("");
-  const [spouseName, setSpouseName] = React.useState("");
 
-  const isValid =
-    maritalStatus && (maritalStatus === "Single" || spouseName.trim() !== "");
+const handleNext = () => {
+  if (!maritalStatus || (maritalStatus === "Married" && !spouseName.trim())) {
+    alert("Please fill all required fields!");
+    return;
+  }
+  updateUserData("maritalStatus", maritalStatus);
+  updateUserData("spouseName", spouseName);
+  if (maritalStatus === "Single") navigate("/goals");
+  else navigate("/details3");
+};
+
   return (
     <div>
       <div style={{ position: "relative" }}>
@@ -33,7 +43,7 @@ export default function Details2() {
           heading="My details"
           value={2}
           displayProgress="flex"
-          linkTo={"/Landing1"}
+          linkTo={"/details1"}
           position={"fixed"}
           top={17}
         />
@@ -50,14 +60,11 @@ export default function Details2() {
           }}
         >
           <Typography sx={{ mb: 1 }}>
-            My name is <span style={{ color: "#ff5100" }}>{name}</span>
+            My name is <span style={{ color: "#ff5100" }}>{userData.firstName}</span>
           </Typography>
 
           <Typography sx={{ mb: 4 }}>
-            And I am{" "}
-            <span style={{ color: "#ff5100" }}>
-              {gender} of {age} years old
-            </span>
+            And I am <span style={{ color: "#ff5100" }}>{userData.title}</span> of {userData.dob} years old
             .
           </Typography>
           <Typography
@@ -65,7 +72,7 @@ export default function Details2() {
               fontSize: "35px",
               textAlign: "left",
               color: "black",
-              maxWidth: "350px",
+              minWidth: "350px",
               fontWeight: "600",
               lineHeight: 1,
               marginBottom: "35px",
@@ -80,8 +87,9 @@ export default function Details2() {
             exclusive
             value={maritalStatus}
             onChange={(_, value) => setMaritalStatus(value)}
+            
           >
-            <ToggleButton value="Single" sx={{ px: 3 }}>
+            <ToggleButton value="Single" sx={{ maxWidth:'150px' }}>
               <BoyIcon sx={{ mr: 1 }} />
               Single
             </ToggleButton>
@@ -89,6 +97,7 @@ export default function Details2() {
             <ToggleButton
               value="Married"
               sx={{
+                maxWidth:'150px' ,
                 px: 3,
                 "&.Mui-selected": {
                   backgroundColor: "#ff5100",
@@ -106,7 +115,7 @@ export default function Details2() {
               label="My wife is"
               value={spouseName}
               onChange={(e) => setSpouseName(e.target.value)}
-              sx={{ width: "280px", mb: 4 }}
+              sx={{ width: "300px"}}
               InputProps={{
                 startAdornment: <GirlIcon sx={{ mr: 1 }} />,
               }}
@@ -115,7 +124,7 @@ export default function Details2() {
 
           <div
             style={{
-              width: "290px",
+              width: "300px",
               display: "flex",
               justifyContent: "flex-end",
               margin: "8px",
@@ -129,9 +138,7 @@ export default function Details2() {
               borderColor={"rgb(255, 81, 0)"}
               bgColor={"rgb(255, 81, 0)"}
               textColor={"white"}
-              onClick={() => {
-                navigate("/details3");
-              }}
+               onClick={handleNext}
             />
             <div></div>
           </div>

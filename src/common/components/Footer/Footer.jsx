@@ -23,12 +23,12 @@ export default function Footer() {
     
     <div>
         <div style={{display:'flex', justifyContent:'space-between'}}>
-      <Box sx={{ display: 'flex', gap: 2, color: 'grey', fontSize: '2rem', marginLeft:8, marginTop:-4}}>
-        <Box sx={iconStyle}><FacebookIcon /></Box>
-        <Box sx={iconStyle}><InstagramIcon /></Box>
-        <Box sx={iconStyle}><LinkedInIcon /></Box>
-        <Box sx={iconStyle}><TwitterIcon /></Box>
-      </Box>
+            <Box sx={{ display: 'flex', gap: 2, color: 'grey', fontSize: '2rem', marginLeft:8, marginTop:-4}}>
+                <Box sx={iconStyle}><FacebookIcon /></Box>
+                <Box sx={iconStyle}><InstagramIcon /></Box>
+                <Box sx={iconStyle}><LinkedInIcon /></Box>
+                <Box sx={iconStyle}><TwitterIcon /></Box>
+            </Box>
             <div style={{marginRight:50,marginTop:-30}} >
                 <Typography sx={{fontWeight:600}}>
                     Find your Needs
