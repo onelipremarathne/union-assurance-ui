@@ -179,8 +179,9 @@ export default function Details3() {
           />
         </Box>
       </Box>
-
-      <Footer />
+      <div style={{ marginTop: kidsCount === 0 ? "102px" : "auto" }}>
+        <Footer />
+      </div>
     </>
   );
 }

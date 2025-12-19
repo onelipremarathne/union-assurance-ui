@@ -1,7 +1,13 @@
 import React from "react";
 import Navbar from "../../common/components/Navbar/Navbar";
 import Footer from "../../common/components/Footer/Footer";
-import { Box, Typography, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  ToggleButton,
+  ToggleButtonGroup,
+} from "@mui/material";
 import CommonButton from "../../common/components/CommonButton/CommonButton";
 import { useNavigate } from "react-router-dom";
 import BoyIcon from "@mui/icons-material/Boy";
@@ -60,7 +66,8 @@ export default function Details2() {
 
           <Typography sx={{ mb: 4 }}>
             And I am <span style={{ color: "#ff5100" }}>{userData.title}</span>{" "}
-            of {userData.dob} years old .
+            of{" "}
+            <span style={{ color: "#ff5100" }}>{userData.dob} years old.</span>
           </Typography>
           <Typography
             sx={{
@@ -76,7 +83,11 @@ export default function Details2() {
             Are you married?
           </Typography>
 
-          <Typography sx={{ fontSize: "12px" }}>Marital Status</Typography>
+          <Typography
+            sx={{ fontSize: "12px", minWidth: "280px", marginBottom: "-20px" }}
+          >
+            Marital Status
+          </Typography>
 
           <ToggleButtonGroup
             exclusive
@@ -137,7 +148,11 @@ export default function Details2() {
             <div></div>
           </div>
         </Box>
-        <Footer />
+        <div
+          style={{ marginTop: maritalStatus === "Married" ? "34px" : "90px" }}
+        >
+          <Footer />
+        </div>
       </div>
     </div>
   );
