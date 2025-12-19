@@ -9,13 +9,10 @@ import Select from "@mui/material/Select";
 import PersonIcon from "@mui/icons-material/Person";
 import InputAdornment from "@mui/material/InputAdornment";
 import CommonButton from "../../common/components/CommonButton/CommonButton";
+import { useNavigate } from "react-router-dom";
 
 export default function Details1() {
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+   const navigate = useNavigate();
   return (
     <div>
       <div style={{ position: "relative" }}>
@@ -50,7 +47,7 @@ export default function Details1() {
             <FormControl sx={{ m: 1, minWidth: 70 }} size="large">
               <InputLabel>Title</InputLabel>
 
-              <Select value={age} onChange={handleChange} autoWidth>
+              <Select autoWidth>
                 <MenuItem value={1}>Male</MenuItem>
                 <MenuItem value={2}>Female</MenuItem>
               </Select>
@@ -122,7 +119,7 @@ export default function Details1() {
               bgColor={"rgb(255, 81, 0)"}
               textColor={"white"}
               onClick={() => {
-                navigate("/Landing2");
+                navigate("/details2");
               }}
             />
           </div>
