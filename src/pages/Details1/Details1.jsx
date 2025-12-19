@@ -34,6 +34,13 @@ export default function Details1() {
     navigate("/details2");
   };
 
+  let displayValue;
+  if (dob) {
+    displayValue = (2025 - dob).toString(); 
+  } else {
+    displayValue = "";
+  }
+
   return (
     <div>
       <div style={{ position: "relative" }}>
@@ -131,8 +138,14 @@ export default function Details1() {
                 ),
               },
             }}
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            value={displayValue}
+            onChange={(e) => {
+              if (e.target.value) {
+                const year = new Date(e.target.value).getFullYear();
+                const age = 2025 - year;
+                setDob(age);
+              }
+            }}
           />
 
           <div
