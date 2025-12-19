@@ -20,7 +20,7 @@ export default function InfoCard() {
         <Typography variant="h6" sx={{color:'grey'}} gutterBottom>
           Find your goals and plan your future{" "}
         </Typography>
-        <CommonButton btnName={"Get started →"} displayButton={"hi"} borderColor={'rgb(255, 81, 0)'} bgColor={'rgb(255, 81, 0)'} textColor={'white'} onClick={()=>{navigate("/Landing2")}} />        
+        <CommonButton btnName={"Get started →"} displayButton={"hi"} borderColor={'rgb(255, 81, 0)'} bgColor={'rgb(255, 81, 0)'} textColor={'white'} onClick={()=>{navigate("/landing2")}} />        
       </Box>
     </div>
   );

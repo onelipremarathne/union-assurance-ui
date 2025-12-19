@@ -29,7 +29,7 @@ export default function Details2() {
     <div>
       <div style={{ position: "relative" }}>
         <Navbar
-          progress={60}
+          progress={50}
           heading="My details"
           value={2}
           displayProgress="flex"
@@ -130,10 +130,9 @@ export default function Details2() {
               bgColor={"rgb(255, 81, 0)"}
               textColor={"white"}
               onClick={() => {
-                navigate("/details2");
+                navigate("/details3");
               }}
             />
-
             <div></div>
           </div>
         </Box>

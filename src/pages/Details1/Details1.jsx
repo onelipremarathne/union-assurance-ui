@@ -17,7 +17,7 @@ export default function Details1() {
     <div>
       <div style={{ position: "relative" }}>
         <Navbar
-          progress={30}
+          progress={25}
           heading="My details"
           value={1}
           displayProgress="flex"
@@ -34,8 +34,6 @@ export default function Details1() {
             justifyContent: "center",
             alignItems: "center",
             alignContent:'center',
-            
-            
             flexDirection: "column",
           }}
         >

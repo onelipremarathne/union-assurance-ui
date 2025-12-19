@@ -11,7 +11,6 @@ export default function ProgressBar({ progress,heading,value ,displayProgress,li
         sx={{
           position: "fixed",
           left:'35vw',
-          display: "flex",
           justifyContent: "space-between",
           alignContent:'center',
           alignItems:'center',
@@ -20,10 +19,6 @@ export default function ProgressBar({ progress,heading,value ,displayProgress,li
           padding:'5px 20px',
           boxShadow: "0px 3px 15px rgba(0,0,0,0.15)",
           display: displayProgress ? "flex" : "none",
-          
-
-
-
         }}
       >
         <Link to={linkTo}>
@@ -60,7 +55,7 @@ export default function ProgressBar({ progress,heading,value ,displayProgress,li
                 textAlign: "center",
               }}
             >
-              Step <br /> {value} of 3
+              Step <br /> {value} of 4
             </Typography>
           </Box>
         </Box>
