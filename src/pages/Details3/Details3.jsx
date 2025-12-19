@@ -86,7 +86,7 @@ export default function Details3() {
           {userData.maritalStatus === "Married" && (
             <>
               {" "}
-              to <span style={{ color: "#ff5100" }}>{userData.spouseName}</span>
+              to <span style={{ color: "#ff5100" }}>{userData.spouseName}{"."}</span>
             </>
           )}
         </Typography>
@@ -179,7 +179,7 @@ export default function Details3() {
           />
         </Box>
       </Box>
-      <div style={{ marginTop: kidsCount === 0 ? "102px" : "auto" }}>
+      <div style={{ marginTop: kidsCount === 0 ? "102px" : "auto",marginBottom: kidsCount === 0 ? "auto" : "35px" }}>
         <Footer />
       </div>
     </>

@@ -51,8 +51,8 @@ export default function Goals() {
 
         <div style={{display:'flex',justifyContent: "space-between", width: "90vw"}}>
             <div style={{display:'flex', gap:'10px', marginBottom:'10px'}}>
-                <CommonButton btnName={"All Goals"} displayButton={true} borderColor={'rgba(136, 130, 127, 1)'} bgColor={'rgba(136, 130, 127, 1)'} textColor={'black'}/>            
-                <CommonButton btnName={"Goal Timeline"} displayButton={true} borderColor={'rgba(136, 130, 127, 1)'} bgColor={'rgba(136, 130, 127, 1)'} textColor={'black'}/>                       
+                <CommonButton btnName={"All Goals"} displayButton={true} borderColor={'rgba(212, 212, 212, 1)'} bgColor={'rgba(212, 212, 212, 1)'} textColor={'black'}/>            
+                <CommonButton btnName={"Goal Timeline"} displayButton={true} borderColor={'rgba(212, 212, 212, 1)'} bgColor={'rgba(255, 255, 255, 1)'} textColor={'rgba(173, 172, 172, 1)'}/>                       
             </div >
             <div>
                 <CommonButton btnName={"+ Add to cart "} displayButton={true}borderColor={'rgb(255, 81, 0)'} bgColor={'white'} textColor={'rgb(255, 81, 0)'} />                               
@@ -67,7 +67,7 @@ export default function Goals() {
         </div>
 
             <div style={{display:'flex', justifyContent:'flex-end', width:'90vw'}}>
-                <CommonButton btnName={"Next →"} displayButton={true} borderColor={'rgb(255, 81, 0)'} bgColor={'rgb(255, 81, 0)'} textColor={'white'} onClick={()=>{navigate("/landing2")}} />        
+                <CommonButton btnName={"Next →"} displayButton={true} borderColor={'rgb(255, 81, 0)'} bgColor={'rgb(255, 81, 0)'} textColor={'white'} onClick={()=>{navigate("/landing1 ")}} />        
             </div> 
       </Box>
 
